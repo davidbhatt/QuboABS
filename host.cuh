@@ -1,0 +1,16 @@
+__host__ void read_qubo(FILE *inFile,int &nmin,int &nmax,int &nNodes);
+__host__ void fill_qubo(FILE *inFile,float **val,int nmin);
+__host__ void LowerTriangulize(float**qubo,int qubo_size);
+__host__  float evaluate(bool *sol,float **qubo,int qubo_size);
+__host__ void fchange(float **qubo,bool *sol,int bit,int qubo_size,float*dxo);			
+__host__ void h_fchangef(float **qubo,bool *sol,int fbit,int bit,int qubo_size,float*dxo1,float*dxo);
+__host__ int h_hamming(bool *sol, bool *solp, int nNodes);
+__host__ int h_selectg(bool *sol,bool *solp,float *dxo,int nNodes);
+__host__ float h_straightSearch(float **val,bool *sol,float *dxo,bool *solp,bool *solb,float &energy,int nNodes);
+__host__ void GAreprod(bool*solpool,int nsol,bool *newsol,int nNodes,int nmuts);
+__host__ int binarySearch(float arr[], int size,float item);
+__host__ void replaceg(float arr[],int size,int id,float value,int *idsol);
+__host__ void initSol(bool *h_solpool,int nNodes,float *e_pool,int nsol,float **qubo);
+__host__ void sortSolution(float *e_pool,int nsol,int *ids);
+__host__ void insertSol(float entry,float *e_pool,int nsol,int *ids,bool *bestsol,bool *solpool,int nNodes);
+__host__ void insert(bool *newsol,bool *solpool,int point,int nNodes);
